@@ -23,53 +23,29 @@ const mimeTypes = {
 const server = http.createServer((req, res) => {
   const reqPath = req.url === "/" ? "/index.html" : req.url;
   const filePath = path.join(DIST_DIR, reqPath);
-  const brFilePath = filePath + ".br";
   const gzFilePath = filePath + ".gz";
 
   const ext = path.extname(filePath).slice(1);
   const contentType = mimeTypes[ext] || "application/octet-stream";
+  const acceptsGzip = req.headers["accept-encoding"]?.includes("gzip");
 
-  const acceptEncoding = req.headers["accept-encoding"] || "";
-  const acceptsBrotli = acceptEncoding.includes("br");
-  const acceptsGzip = acceptEncoding.includes("gzip");
-
-  if (acceptsBrotli) {
-    fs.access(brFilePath, fs.constants.F_OK, (err) => {
+  if (acceptsGzip) {
+    fs.access(gzFilePath, fs.constants.F_OK, (err) => {
       if (!err) {
         res.writeHead(200, {
           "Content-Type": contentType,
-          "Content-Encoding": "br",
+          "Content-Encoding": "gzip",
           "Cache-Control": "max-age=86400",
           Vary: "Accept-Encoding",
         });
-        return fs.createReadStream(brFilePath).pipe(res);
+        return fs.createReadStream(gzFilePath).pipe(res);
       } else {
-        // Fall back to gzip
-        serveGzipOrRaw();
+        // Fall back to uncompressed
+        serveRaw();
       }
     });
   } else {
-    serveGzipOrRaw();
-  }
-
-  function serveGzipOrRaw() {
-    if (acceptsGzip) {
-      fs.access(gzFilePath, fs.constants.F_OK, (err) => {
-        if (!err) {
-          res.writeHead(200, {
-            "Content-Type": contentType,
-            "Content-Encoding": "gzip",
-            "Cache-Control": "max-age=86400",
-            Vary: "Accept-Encoding",
-          });
-          return fs.createReadStream(gzFilePath).pipe(res);
-        } else {
-          serveRaw();
-        }
-      });
-    } else {
-      serveRaw();
-    }
+    serveRaw();
   }
 
   function serveRaw() {
@@ -78,6 +54,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(404);
         return res.end("File not found");
       }
+
       res.writeHead(200, {
         "Content-Type": contentType,
         "Cache-Control": "max-age=86400",
