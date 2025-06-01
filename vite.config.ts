@@ -14,4 +14,18 @@ export default defineConfig({
       filter: /\.(js|css|html|svg|json)$/i,
     }),
   ],
+  build: {
+    minify: "terser", // ✅ default: "esbuild", can use "terser"
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+      mangle: {
+        properties: {
+          regex: /^_/, // Mangle properties starting with _
+        },
+      },
+    },
+  },
 });
