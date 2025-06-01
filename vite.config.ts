@@ -8,10 +8,10 @@ export default defineConfig({
     compression({
       ext: ".gz",
       algorithm: "gzip",
-      threshold: 0, // ← Compress even small files (index.html is often < 1KB)
-      deleteOriginFile: true, // ← Keep the original .html file
+      threshold: 0, // Compress even small files like vite.svg
+      deleteOriginFile: true, // ✅ Keep original files (important for fallback)
       verbose: true,
-      filter: /\.(js|css|html|svg|json)$/i, // ← Make sure .html is included
+      filter: /\.(js|css|html|svg|json)$/i,
     }),
   ],
 });
