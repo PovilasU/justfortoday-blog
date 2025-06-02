@@ -37,4 +37,5 @@ export default defineConfig({
     },
     cssCodeSplit: true, // splits CSS into smaller chunks if applicable
   },
+  // base: "/justfortoday-blog/", // 👈 replace with actual GitHub repo name (this is for github pages)
 });
