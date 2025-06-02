@@ -1,74 +1,53 @@
 import { Link as PLink } from "preact-router";
 
 const Link = PLink as any;
-const BASE_PATH = "/justfortoday-preact-app";
+// const BASE_PATH = "/justfortoday-preact-app";
 
 export default function Header() {
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container px-4 px-lg-5">
-          <Link class="navbar-brand" href={`${BASE_PATH}/`}>
+          <Link class="navbar-brand" href={`/`}>
             Pagrindinis
           </Link>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            Menu
-            <i class="fas fa-bars"></i>
-          </button>
+
+          <input type="checkbox" id="menuToggle" class="d-none" />
+          <label class="navbar-toggler" for="menuToggle">
+            Menu <i class="fas fa-bars"></i>
+          </label>
+
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
               <li class="nav-item">
-                <Link
-                  class="nav-link px-lg-3 py-3 py-lg-4"
-                  href={`${BASE_PATH}/`}
-                >
+                <Link class="nav-link px-lg-3 py-3 py-lg-4" href={`/`}>
                   Pagrindinis
                 </Link>
               </li>
               <li class="nav-item">
-                <Link
-                  class="nav-link px-lg-3 py-3 py-lg-4"
-                  href={`${BASE_PATH}/about`}
-                >
+                <Link class="nav-link px-lg-3 py-3 py-lg-4" href={`/about`}>
                   Apie
                 </Link>
               </li>
               <li class="nav-item">
-                <Link
-                  class="nav-link px-lg-3 py-3 py-lg-4"
-                  href={`${BASE_PATH}/checklist`}
-                >
+                <Link class="nav-link px-lg-3 py-3 py-lg-4" href={`/checklist`}>
                   Dienos Gairės
                 </Link>
               </li>
               <li class="nav-item">
-                <Link
-                  class="nav-link px-lg-3 py-3 py-lg-4"
-                  href={`${BASE_PATH}/todo`}
-                >
+                <Link class="nav-link px-lg-3 py-3 py-lg-4" href={`/todo`}>
                   Dienos Planas
                 </Link>
               </li>
               <li class="nav-item">
-                <Link
-                  class="nav-link px-lg-3 py-3 py-lg-4"
-                  href={`${BASE_PATH}/help`}
-                >
+                <Link class="nav-link px-lg-3 py-3 py-lg-4" href={`/help`}>
                   Pagalba
                 </Link>
               </li>
               <li class="nav-item">
                 <Link
                   class="nav-link px-lg-3 py-3 py-lg-4"
-                  href={`${BASE_PATH}/meditation`}
+                  href={`/meditation`}
                 >
                   meditacija
                 </Link>

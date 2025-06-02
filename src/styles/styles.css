@@ -10796,3 +10796,14 @@ header.masthead .post-heading .meta a {
     font-size: 2.25rem;
   }
 }
+/*  fixing menu toggle button*/
+
+/* Initially hidden */
+#navbarResponsive {
+  display: none;
+}
+
+/* Show menu when checkbox is checked */
+#menuToggle:checked ~ #navbarResponsive {
+  display: block;
+}
