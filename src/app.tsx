@@ -1,11 +1,14 @@
-// import "./app.css";
+import "./styles/styles.css";
+import AppRouter from "./routes/AppRouter";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export function App() {
   return (
     <>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
+      <Header />
+      <AppRouter />
+      <Footer />
     </>
   );
 }

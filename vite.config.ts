@@ -1,12 +1,13 @@
 import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
 import compression from "vite-plugin-compression";
+import UnoCSS from "unocss/vite";
 //import htmlMinify from "vite-plugin-html-minify";
 
 export default defineConfig({
   plugins: [
     preact(),
-
+    UnoCSS(),
     compression({
       // ext: ".gz",
       // algorithm: "gzip",
@@ -34,5 +35,6 @@ export default defineConfig({
         },
       },
     },
+    cssCodeSplit: true, // splits CSS into smaller chunks if applicable
   },
 });
