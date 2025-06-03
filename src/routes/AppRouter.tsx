@@ -7,6 +7,7 @@ import Help from "../pages/Help";
 import Meditation from "../pages/Meditation";
 import Checklist from "../pages/Checklist";
 import Todo from "../pages/Todo";
+import MediaLibrary from "../pages/MediaLibrary";
 import NotFound from "../pages/NotFound";
 
 //const BASE_PATH = "/justfortoday-preact-app";
@@ -20,6 +21,7 @@ export default function AppRouter() {
       <Todo path={`/todo`} />
       <Help path={`/help`} />
       <Meditation path={`/meditation`} />
+      <MediaLibrary path={`/medialibrary`} />
       <NotFound default />
     </Router>
   );

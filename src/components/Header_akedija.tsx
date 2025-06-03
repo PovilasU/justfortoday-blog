@@ -1,11 +1,12 @@
-import { Link as PLink } from "preact-router";
+// import { Link as PLink } from "preact-router";
 
-const Link = PLink as any;
+// const Link = PLink as any;
+// const BASE_PATH = "/justfortoday-preact-app";
 
 export default function Header() {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+      {/* <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container px-4 px-lg-5">
           <Link class="navbar-brand" href={`/`}>
             Pagrindinis
@@ -43,14 +44,7 @@ export default function Header() {
                   Pagalba
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link
-                  class="nav-link px-lg-3 py-3 py-lg-4"
-                  href={`/medialibrary`}
-                >
-                  Mediateka
-                </Link>
-              </li>
+
               <li class="nav-item">
                 <Link
                   class="nav-link px-lg-3 py-3 py-lg-4"
@@ -59,18 +53,33 @@ export default function Header() {
                   meditacija
                 </Link>
               </li>
+              <li class="nav-item">
+                <Link
+                  class="nav-link px-lg-3 py-3 py-lg-4"
+                  href={`/medialibrary`}
+                >
+                  Mediateka
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       <header class="masthead">
         <div class="container position-relative px-4 px-lg-5">
           <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-              <div class="site-heading">
+              {/* <div class="site-heading">
                 <h1>Tik šiandien</h1>
                 <span class="subheading">Šios dienos mintys</span>
+              </div> */}
+              <div class="site-heading">
+                <h1>Skiriu Antanui</h1>
+                <span class="subheading">Kad neuzeitu akedija</span>
+                <span class="subheading">
+                  Užsidiek varnalycę, kad žinotai, kur baigi klausyc.“
+                </span>
               </div>
             </div>
           </div>
