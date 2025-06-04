@@ -1,4 +1,3 @@
-//import { h } from 'preact';
 import Router from "preact-router";
 
 import Home from "../pages/Home";
@@ -8,9 +7,8 @@ import Meditation from "../pages/Meditation";
 import Checklist from "../pages/Checklist";
 import Todo from "../pages/Todo";
 import MediaLibrary from "../pages/MediaLibrary";
+import DailyReflection from "../pages/DailyReflection";
 import NotFound from "../pages/NotFound";
-
-//const BASE_PATH = "/justfortoday-preact-app";
 
 export default function AppRouter() {
   return (
@@ -22,6 +20,7 @@ export default function AppRouter() {
       <Help path={`/help`} />
       <Meditation path={`/meditation`} />
       <MediaLibrary path={`/medialibrary`} />
+      <DailyReflection path={`/dailyreflection`} />
       <NotFound default />
     </Router>
   );

@@ -14,7 +14,7 @@ export default defineConfig({
       algorithm: "brotliCompress",
       ext: ".br",
       threshold: 0, // Compress even small files like vite.svg
-      deleteOriginFile: false, // ✅ Keep original files (important for fallback)
+      deleteOriginFile: true, // ✅ Keep original files (important for fallback)
       verbose: true,
       filter: /\.(js|css|html|svg|json)$/i,
     }),
